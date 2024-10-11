@@ -1,1 +1,1 @@
-# Skill Space - Authurization and Authentication Service in Spring Boot
+# Skill Space - Authorization and Authentication Service in Spring Boot
