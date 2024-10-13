@@ -1,12 +1,20 @@
 package com.skillspace.authservice.models;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class Users {
+    @Id
     private long id;
     private String email;
     private String password;
     private String role;
-    private boolean emailStatus = false;
-    private boolean profileStatus = false;
+    @Column(insertable = false,updatable = true)
+    private boolean emailStatus;
+    @Column(insertable = false,updatable = true)
+    private boolean profileStatus;
 
     public long getId() {
         return id;
