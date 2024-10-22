@@ -2,7 +2,6 @@ package com.skillspace.authservice.repository;
 
 import com.skillspace.authservice.models.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
