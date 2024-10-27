@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 @Table(name = "users")
 public class Users {
     @Id
-    private long id;
     private String email;
     private String password;
     private String role;
@@ -16,13 +15,6 @@ public class Users {
     @Column(insertable = false,updatable = true)
     private boolean profileStatus;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;
@@ -67,7 +59,6 @@ public class Users {
     @Override
     public String toString() {
         return "Users{" +
-                "id=" + id +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +

@@ -4,6 +4,15 @@ public class ResponseWIthJWT {
     private boolean error;
     private String message;
     private String jwt;
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public boolean isError() {
         return error;
