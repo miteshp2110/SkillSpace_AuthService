@@ -2,6 +2,7 @@ package com.skillspace.authservice.controllers;
 
 import com.skillspace.authservice.models.ResponseWIthJWT;
 import com.skillspace.authservice.models.Users;
+import com.skillspace.authservice.services.LoginService;
 import com.skillspace.authservice.services.SignupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ public class AuthController {
 
     @Autowired
     private SignupService signupService;
+
+    @Autowired
+    private LoginService loginService;
 
     @PostMapping("/signupStudent")
     public ResponseEntity<ResponseWIthJWT> signupStudentController(@RequestBody Users user)
@@ -36,10 +40,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody Users user){
+    public ResponseEntity<ResponseWIthJWT> login(@RequestBody Users user){
 
-        System.out.println(user);
-        return "you are logging in";
+        return loginService.login(user);
     }
 
     @PostMapping("/updatePassword")

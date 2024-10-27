@@ -11,8 +11,14 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 //    public String insertUser(Users users);
 
 
-    @Query(value = "select count(*) from users where id = :id OR email = :email",nativeQuery = true)
-    public int existingUser(@Param("id") long id, @Param("email") String email);
+    @Query(value = "select count(*) from users where email = :email",nativeQuery = true)
+    public int existingUser(@Param("email") String email);
+
+    @Query(value = "select role from users where email =:email",nativeQuery = true)
+    public String findRoleByEmail(@Param("email") String email);
+
+    @Query(value = "select password from users where email =:email",nativeQuery = true)
+    public String findPasswordByEmail(@Param("email") String email);
 
 
 }
