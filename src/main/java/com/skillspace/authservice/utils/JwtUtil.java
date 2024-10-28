@@ -151,7 +151,7 @@ public class JwtUtil {
 //        System.out.println(claims.getSubject());
 //        System.out.println(claims.get("role", String.class));
 
-        return generateToken(claims.getId(), claims.get("role", String.class));
+        return generateToken(claims.getSubject(), claims.get("role", String.class));
     }
 
 
