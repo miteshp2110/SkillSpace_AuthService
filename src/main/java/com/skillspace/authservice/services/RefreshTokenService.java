@@ -27,15 +27,18 @@ public class RefreshTokenService {
             response.setJwt(currentToken);
             response.setError(false);
             response.setMessage("Refresh token still Valid.");
+            response.setRole(jwtUtil.extractRole(currentToken));
             return ResponseEntity.status(200).body(response);
 
         }
         else{
 
             if(currentTokenStatus.isExpired() & currentTokenStatus.isValid()){
-                response.setJwt(jwtUtil.getRefreshToken(currentToken));
+                String newToken = jwtUtil.getRefreshToken(currentToken);
+                response.setJwt(newToken);
                 response.setError(false);
                 response.setMessage("Refresh token Updated.");
+                response.setRole(jwtUtil.extractRole(newToken));
                 return ResponseEntity.status(200).body(response);
             }
 

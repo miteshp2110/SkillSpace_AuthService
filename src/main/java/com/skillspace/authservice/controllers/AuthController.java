@@ -45,10 +45,5 @@ public class AuthController {
         return loginService.login(user);
     }
 
-    @PostMapping("/updatePassword")
-    public String updatePassword(@RequestBody String newPassword){
-        System.out.println(newPassword);
-        return "update password";
-    }
 
 }
