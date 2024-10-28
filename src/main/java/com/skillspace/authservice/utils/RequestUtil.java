@@ -1,5 +1,7 @@
 package com.skillspace.authservice.utils;
 
+import com.skillspace.authservice.models.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
@@ -10,6 +12,10 @@ import org.springframework.http.HttpHeaders;
 
 @Component
 public class RequestUtil {
+
+    @Autowired
+    RequestBody jsonRequestTemplate;
+
     @Value("${email_service_host}")
     private String host;
 
@@ -19,11 +25,11 @@ public class RequestUtil {
     @Value("${email_service_apiKey}")
     private String apiKey;
 
-    public String sentPostRequest(String endpoint){
+    public String sentPostRequest(String endpoint , String body) {
 
         String uri = "http://" + host + ":" + port + "/send" + endpoint;
-        System.out.println(uri);
-        System.out.println(apiKey);
+//        System.out.println(uri);
+//        System.out.println(apiKey);
 
         RestTemplate restTemplate = new RestTemplate();
 
@@ -33,15 +39,8 @@ public class RequestUtil {
 
         headers.set("Authorization",apiKey);
 
-        String jsonBody = """
-                {
-                    "company":"SkillSpace",
-                    "otp" : 4657,
-                    "recipient":"paliwalmitesh2110@gmail.com"
-                }
-                """;
 
-        HttpEntity<String> httpEntity = new HttpEntity<>(jsonBody, headers);
+        HttpEntity<String> httpEntity = new HttpEntity<>(body, headers);
 
         ResponseEntity<String> response = restTemplate.postForEntity(uri, httpEntity, String.class);
 
