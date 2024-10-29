@@ -1,9 +1,17 @@
 package com.skillspace.authservice.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "student")
 public class Profile {
+
+    @Id
+    private String email;
     private String name;
     private String branch;
     private String bio;
+    @Column(name = " profileImage_url")
     private String profile_image_url;
 
     public String getName() {
@@ -36,6 +44,15 @@ public class Profile {
 
     public void setProfile_image_url(String profile_image_url) {
         this.profile_image_url = profile_image_url;
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
