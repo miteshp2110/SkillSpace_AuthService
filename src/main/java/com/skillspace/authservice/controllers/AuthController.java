@@ -28,16 +28,6 @@ public class AuthController {
 
     }
 
-    @PostMapping("/signupTeacher")
-    public ResponseEntity<ResponseWIthJWT> signupTeacherController(@RequestBody Users user, @RequestHeader("Authorization") String token){
-        return signupService.signupTeacherService(user,token);
-    }
-
-    @PostMapping("/signupAdmin")
-    public ResponseEntity<ResponseWIthJWT> signupAdminController(@RequestBody Users user, @RequestHeader("Authorization") String token){
-        return signupService.signupAdminService(user,token);
-
-    }
 
     @PostMapping("/login")
     public ResponseEntity<ResponseWIthJWT> login(@RequestBody Users user){
