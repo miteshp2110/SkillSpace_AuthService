@@ -17,4 +17,6 @@
 /requestOtp - send the otp  email
 /verifyOtp - verifyOtp and check if it is correct and return jwt
 
+more endpoints..
+
 
