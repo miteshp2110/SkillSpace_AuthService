@@ -2,7 +2,7 @@
 
 ## JWT controller
 /jwtStatus - return the status of state of user (emailStatus , profileStatus , and if user is ready to access other services)
-/refreshToken - issue the refresh token for the jwt if expired
+/refreshToken - issue the refresh token for the jwt if expired.
 
 
 ## Auth Controller
@@ -16,5 +16,7 @@
 ## Otp Controller 
 /requestOtp - send the otp  email
 /verifyOtp - verifyOtp and check if it is correct and return jwt
+
+more endpoints..
 
 
