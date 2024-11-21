@@ -81,7 +81,7 @@ public class OtpService {
        catch (Exception e){
            response.setError(true);
            response.setMessage("Unable to send Mail, Try after some time.");
-           return ResponseEntity.status(500).body(response);
+           return ResponseEntity.status(404).body(response);
        }
     }
 
@@ -106,7 +106,7 @@ public class OtpService {
             else{
                 response.setError(true);
                 response.setMessage("Wrong OTP");
-                return ResponseEntity.status(404).body(response);
+                return ResponseEntity.status(400).body(response);
             }
         }
 
@@ -137,7 +137,7 @@ public class OtpService {
             else{
                 response.setError(true);
                 response.setMessage("Wrong OTP");
-                return ResponseEntity.status(404).body(response);
+                return ResponseEntity.status(401).body(response);
             }
         }
 
