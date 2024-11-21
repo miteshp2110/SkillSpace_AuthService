@@ -25,9 +25,13 @@ public class RequestUtil {
     @Value("${email_service_apiKey}")
     private String apiKey;
 
+    @Value("${email_service_url}")
+    private String url;
+
     public String sentPostRequest(String endpoint , String body) {
 
-        String uri = "http://" + host + ":" + port + "/send" + endpoint;
+//        String uri = "http://" + host + ":" + port + "/send" + endpoint;
+        String uri = url + "/send" + endpoint;
 //        System.out.println(uri);
 //        System.out.println(apiKey);
 

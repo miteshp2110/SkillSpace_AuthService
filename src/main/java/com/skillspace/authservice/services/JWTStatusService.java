@@ -29,6 +29,6 @@ public class JWTStatusService {
         }
         response.setError(true);
         response.setMessage("Token Invalid");
-        return ResponseEntity.status(403).body(response);
+        return ResponseEntity.status(400).body(response);
     }
 }

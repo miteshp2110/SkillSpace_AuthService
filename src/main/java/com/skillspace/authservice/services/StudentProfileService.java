@@ -48,6 +48,7 @@ public class StudentProfileService {
 
             return ResponseEntity.status(201).body(response);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             Response response = new Response();
             response.setError(true);
             response.setMessage("Error setting profile");

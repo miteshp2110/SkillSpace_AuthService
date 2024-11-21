@@ -39,7 +39,7 @@ public class ProfileController {
 
     @PostMapping("/completeProfile/student")
     public ResponseEntity<Response> completeProfile(@RequestHeader("Authorization") String token , @RequestParam("file") MultipartFile
-                                  file, @RequestParam("name") String name , @RequestParam("branch")
+                                  file , @RequestParam("name") String name , @RequestParam("branch")
                                   String branch, @RequestParam("bio")String bio) throws Exception {
 
         return studentProfileService.setStudentProfile(token,file,name,bio,branch);
