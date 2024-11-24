@@ -53,7 +53,7 @@ public class LoginService {
             response.setMessage("User not found");
             response.setRole(null);
             response.setJwt(null);
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+            return ResponseEntity.status(404).body(response);
         }
 
     }

@@ -55,6 +55,7 @@ public class OtpService {
             String reqBody = requestBody.otpRequestBody(email,companyName,code);
             requestUtil.sentPostRequest("/emailVerification",reqBody);
             response.setMessage("Mail Sent Successfully");
+            response.setError(false);
             return ResponseEntity.status(200).body(response);
         }
         catch (Exception e){
